@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Estudios</title>
+    <script>
+        function mostrarDatos() {
+            var nombre = document.getElementById("nombre").value;
+            var estudios = document.querySelector('input[name="estudios"]:checked');
+
+            if (nombre === "" || estudios === null) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "<h2>Resultado</h2>" +
+                "<p><b>Nombre:</b> " + nombre + "</p>" +
+                "<p><b>Estudios:</b> " + estudios.value + "</p>";
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Ingrese sus datos</h2>
+    <form onsubmit="event.preventDefault(); mostrarDatos();">
+        Nombre: <input type="text" id="nombre" required><br><br>
+
+        Seleccione su nivel de estudios:<br>
+        <input type="radio" name="estudios" value="No tiene estudios"> No tiene estudios<br>
+        <input type="radio" name="estudios" value="Estudios primarios"> Estudios primarios<br>
+        <input type="radio" name="estudios" value="Estudios secundarios"> Estudios secundarios<br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="resultado"></div>
+
+</body>
+</html>
